@@ -25,7 +25,7 @@ podTemplate(
         def repository
         stage ('Build') {
             container ('docker') {
-                repository = "ciberado/pokemon-nodejs"
+                repository = "trivago-mbonilla/pokemon-nodejs"
                 sh "docker build -t ${repository}:${commitId} ."
             }
         }
@@ -34,7 +34,7 @@ podTemplate(
               withCredentials([[
                   $class: 'UsernamePasswordMultiBinding', 
                   credentialsId: 'docker_hub',
-                  usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'
+                  usernameVariable: 'margotbonilla', passwordVariable: 'mB0n1ll4'
               ]]) {
                   sh "docker login -u $USERNAME -p $PASSWORD"
                   sh "docker push ${repository}:${commitId}"
