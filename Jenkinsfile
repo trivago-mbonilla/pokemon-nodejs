@@ -25,7 +25,7 @@ podTemplate(
         def repository
         stage ('Build') {
             container ('docker') {
-                repository = "trivago-mbonilla/pokemon-nodejs"
+                repository = "margotbonilla/pokemon-nodejs"
                 sh "docker build -t ${repository}:${commitId} ."
             }
         }
